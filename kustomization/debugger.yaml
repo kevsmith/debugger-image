@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debugger
+spec:
+  containers:
+  - name: main
+    image: kevinob/debug:latest
+    command: ["/usr/bin/tmux"]
+    tty: true
+    stdin: true
+    stdinOnce: true
+    resources:
+      requests:
+        memory: "8Gi"
+        cpu: 2
+      limits:
+        memory: "8Gi"
+        cpu: 2
+      env:
+        - name: NATS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: nats-user-token-9l27z
+              key: token
