@@ -11,12 +11,12 @@ RUN apt-get -y install inetutils-ping inetutils-telnet \
 RUN curl -o nats-0.0.34-amd64.deb -L https://github.com/nats-io/natscli/releases/download/v0.0.34/nats-0.0.34-amd64.deb &&\
     dpkg -i nats-0.0.34-amd64.deb && rm -f nats-0.0.34-amd64.deb
 
-RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+# RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
-RUN echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-jammy main" > \
-    /etc/apt/sources.list.d/kubernetes.list
+# RUN echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-jammy main" > \
+#     /etc/apt/sources.list.d/kubernetes.list
 
-RUN apt update -y && apt install kubectl
+# RUN apt update -y && apt install kubectl
 
 COPY --chown=root:root files/debug_sudo /etc/sudoers.d/debug_sudo
 
