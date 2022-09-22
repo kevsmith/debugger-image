@@ -6,7 +6,7 @@ spec:
   containers:
   - name: main
     image: kevinob/debug:latest
-    command: ["/usr/bin/tmux"]
+    command: ["/usr/local/bin/tmux_chooser"]
     tty: true
     stdin: true
     stdinOnce: true
@@ -17,9 +17,9 @@ spec:
       limits:
         memory: "8Gi"
         cpu: 2
-      env:
-        - name: NATS_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: nats-user-token-9l27z
-              key: token
+    env:
+      - name: NATS_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: nats-user-token-9l27z
+            key: token
