@@ -40,4 +40,4 @@ RUN mkdir -p /home/debug/go
 
 RUN pip3 install --user --no-warn-script-location virtualenv poetry pipenv
 
-ENTRYPOINT [ "/usr/local/bin/tmux_chooser" ]
+ENTRYPOINT [ "/bin/sh" ]
